@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfoTagger", "InfoTagger\InfoTagger.csproj", "{EF34951A-C626-4F14-A067-8EA8A1BA774E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tags", "Tags\Tags.csproj", "{7647884D-9B4D-4119-AF22-4745F5636C92}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF34951A-C626-4F14-A067-8EA8A1BA774E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF34951A-C626-4F14-A067-8EA8A1BA774E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF34951A-C626-4F14-A067-8EA8A1BA774E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF34951A-C626-4F14-A067-8EA8A1BA774E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7647884D-9B4D-4119-AF22-4745F5636C92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7647884D-9B4D-4119-AF22-4745F5636C92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7647884D-9B4D-4119-AF22-4745F5636C92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7647884D-9B4D-4119-AF22-4745F5636C92}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
