@@ -3,31 +3,31 @@ namespace Tags;
 
 public class TagList : ITagList
 {
-    private readonly HashSet<Tag> tags = new(new TagEqualityComparer());
+    private readonly Dictionary<int, Tag> tags = new();
 
 
     public void AddTag(Tag tag)
     {
-        if (tags.Contains(tag))
+        if (tags.ContainsKey(tag.Id))
             throw new Exception("Tag already exists.");
 
-        tags.Add(tag);
+        tags.Add(tag.Id, tag);
     }
 
     public Tag? GetTag(int id)
     {
-        tags.TryGetValue(Tag.ComparisonTag(id), out Tag? actualTag);
+        tags.TryGetValue(id, out Tag? actualTag);
         return actualTag;
     }
 
     public void RemoveTag(int id)
     {
-        tags.Remove(Tag.ComparisonTag(id));
+        tags.Remove(id);
     }
 
     public void RemoveTag(Tag tag)
     {
-        tags.Remove(tag);
+        tags.Remove(tag.Id);
     }
 }
 

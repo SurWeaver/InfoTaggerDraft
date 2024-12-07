@@ -24,8 +24,6 @@ public class Tag
         };
     }
 
-    public static Tag ComparisonTag(int id) => new Tag(string.Empty) { Id = id };
-
 
     public override string ToString()
     {
