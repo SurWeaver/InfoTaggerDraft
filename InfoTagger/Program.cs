@@ -1,7 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-using Tags;
-using UI;
+﻿using UI;
 using UI.Manipulators;
 using Translation;
 
@@ -11,8 +8,12 @@ var debugTranslation = new DebugTranslationServer();
 var menu = new Menu();
 
 var manipulatorStateMachine = new ManipulatorStateMachine<MenuState>.Builder()
-    .AddState(MenuState.MainMenu, new MainMenuManipulator(debugTranslation, menu))
+    .SetMenu(menu)
+    .SetTranslation(debugTranslation)
+
+    .AddState(MenuState.MainMenu, new MainMenuManipulator())
     .SetInitialState(MenuState.MainMenu)
+
     .Build();
 
 menu.Initialize(

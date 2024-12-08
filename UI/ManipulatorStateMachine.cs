@@ -1,3 +1,4 @@
+using Translation;
 using UI.Base;
 
 namespace UI;
@@ -31,7 +32,9 @@ public class ManipulatorStateMachine<TStateEnum> where TStateEnum: Enum
     public class Builder
     {
         private readonly ManipulatorStateMachine<TStateEnum> machine = new();
-        private TStateEnum initialState = default!;
+        private TStateEnum? initialState;
+        private TranslationServer? translationServer;
+        private Menu? menu;
 
         public Builder AddState(TStateEnum state, ConsoleManipulator manipulator)
         {
@@ -45,9 +48,28 @@ public class ManipulatorStateMachine<TStateEnum> where TStateEnum: Enum
             return this;
         }
 
+        public Builder SetMenu(Menu menu)
+        {
+            this.menu = menu;
+            return this;
+        }
+
+        public Builder SetTranslation(TranslationServer translationServer)
+        {
+            this.translationServer = translationServer;
+            return this;
+        }
+
         public ManipulatorStateMachine<TStateEnum> Build()
         {
+            if (initialState is null || translationServer is null || menu is null)
+                throw new Exception("State machine is not properly initialized");
+
             machine.SwitchTo(initialState);
+
+            foreach (var item in machine.manipulators.Values)
+                item.Initialize(translationServer, menu);
+                
             return machine;
         }
     }

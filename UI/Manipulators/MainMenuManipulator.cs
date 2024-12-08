@@ -3,7 +3,7 @@ using Translation;
 
 namespace UI.Manipulators;
 
-public class MainMenuManipulator(TranslationServer translation, Menu menu) : ConsoleManipulator(translation, menu)
+public class MainMenuManipulator : ConsoleManipulator
 {
     public override void ShowOutputBeforeCommand()
     {

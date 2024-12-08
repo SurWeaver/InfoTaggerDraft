@@ -2,10 +2,16 @@ using Translation;
 
 namespace UI.Base;
 
-public abstract class ConsoleManipulator(TranslationServer translation, Menu menu)
+public abstract class ConsoleManipulator
 {
-    public TranslationServer Translation = translation;
-    public Menu Menu = menu;
+    public TranslationServer Translation = default!;
+    public Menu Menu = default!;
+
+    public void Initialize(TranslationServer translation, Menu menu)
+    {
+        Translation = translation;
+        Menu = menu;
+    }
 
     public void WriteLine(LocaleLine line)
     {
