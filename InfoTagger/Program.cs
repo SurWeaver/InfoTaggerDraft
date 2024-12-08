@@ -1,10 +1,22 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using Tags;
+using UI;
+using UI.Manipulators;
+using Translation;
 
-Console.WriteLine("Hello, World!");
 
+var debugTranslation = new DebugTranslationServer();
 
-var tag = Tag.NewTag("Aboba", "ab");
+var menu = new Menu();
 
-Console.WriteLine(tag);
+var manipulatorStateMachine = new ManipulatorStateMachine<MenuState>.Builder()
+    .AddState(MenuState.MainMenu, new MainMenuManipulator(debugTranslation, menu))
+    .SetInitialState(MenuState.MainMenu)
+    .Build();
+
+menu.Initialize(
+    debugTranslation,
+    manipulatorStateMachine);
+
+menu.Run();
